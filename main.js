@@ -23,4 +23,12 @@ quantityInput.addEventListener('input', function() {
     quantityInput.value = 1;
     }
     });
+
+// Task 4 Handle Order Submission
+placeOrderButton.addEventListener('click', function() {
+    const selectedProduct = productSelector.options[productSelector.selectedIndex].text;
+    const quantity = quantityInput.value;
+    const totalPrice = totalPriceElement.textContent;
     
+    orderSummary.textContent = `You Sucessfully ordered ${quantity} of ${selectedProduct}. Total price: $${totalPrice}`;
+});
