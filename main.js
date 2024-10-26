@@ -4,3 +4,23 @@ const quantityInput = document.getElementById('quantity');
 const totalPriceElement = document.getElementById('total-price');
 const placeOrderButton = document.getElementById('place-order');
 const orderSummary = document.getElementById('order-summary');
+
+// Task 3 Add Event Listener for Product Selection
+function updateTotalPrice() {
+    const productPrice = parseFloat(productSelector.value);
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = productPrice * quantity;
+    
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+}
+
+productSelector.addEventListener('change', updateTotalPrice);
+quantityInput.addEventListener('input', updateTotalPrice);
+
+// Ensure the quantity entered is a valid number
+quantityInput.addEventListener('input', function() {
+    if (quantityInput.value < 1) {
+    quantityInput.value = 1;
+    }
+    });
+    
